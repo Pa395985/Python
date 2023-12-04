@@ -1,40 +1,47 @@
-import mysql.connector
+import mysql Connector
+
+# Configurações da conexão com o banco de dados
 
 config = {
-    'user' : 'root',
-    'password' : 'senai',
-    'host' : 'localhost',
-    'database' : 'loja_ii'
-}
+    'user": se_usuário,'
+    'pasword': 'sua_senha',
+    'host': 'localhost',
+    'database': 'nome_do_banco_de_dados'}
+
+# Estabelecer a conexão com o banco de dados
+
+Conexão = mysql.connector
+connect(**config)
 
 
-# Estabecer a conexao com o banco de dados
-conexao = mysql.connector.connect(**config)
-
-# Criar um cursor para executar consulta SQL
-cursor = conexao.cursor()
+# Criar um cursor para executar consultas SQL 
+cursor = conexão.cursor()
 
 # Exemplo de consulta SQL
-#selecionarDB = "use loja_ii;"
-consulta = "SELECT * FROM clientes"
+SelecionarDB = "Use loja_ii;"
 
-inserirCliente = """INSERT INTO clientes(nome, endereco, telefone, e_mail, cpf) 
-VALUES ("Ana", "Rua do Bosque", 123456789 "ana@ana.com", 236548945) (%s,%s,%i,%s,%i)"""
+consulta = "INSERT INTO clientes("nome", "endereço", "telefone", "e-mail", "cpf") VALUES
 
-novo_cliente = ("Ana", "Rua do Bosque", 123456789, "ana@ana.com", 236548945)
+# Dados novo cliente 
+nova_cliente = ("Ana Paula", "Rua do Bosque",123456, "ana@ana", 321654987)
 
-# Executar a consulta
-#cursor.execute(selecionarDB)
+
+# Executar a consulta 
+cursor.execute(SelecionarDB)
 cursor.execute(consulta)
-cursor.execute(inserirCliente, novo_cliente)
 
-#Recuperar os resultados
-resultados = cursor.fetchall()
+# Recuperar os resultados 
+Resultados = cursor Fetchall()
 
 # Imprimir os resultados
-for linha in resultados:
-    print(linha, "\n" )
+for linha in Resultados:
+    print(linha,"\n")
 
 # Fechar o cursor e a conexão
-cursor.close()
-conexao.close()
+Cursor.close
+Conexão.close()
+
+
+
+
+
