@@ -1,18 +1,15 @@
-class Veiculo():
-    def mover(self):
-        pass
+    #nome idade e notas
+    # idade e media das notas e implementar para saber se aprovou.
+    # média maior ou igual a 6
+class Aluno:
+    def __init__(self, nome, idade, notas):
+        self.nome = nome
+        self.idade = idade
+        self.notas = notas
 
-class Carro(Veiculo):
-    def mover(self):
-        return "Dirigindo"
-        
-
-class Aviao(Veiculo):
-    def mover(self):
-        return "Voando"
-        
-carro = Carro()
-aviao = Aviao()
-
-print(carro.mover())
-print(aviao.mover())
+    def calcula_media(self, notas):
+        nota_1
+        nota_2
+        nota_3
+        soma_notas
+        return 
