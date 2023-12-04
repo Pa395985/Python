@@ -1,0 +1,279 @@
+MySQL Elio
+
+use loja_ii;
+
+CREATE TABLE produto
+(`id` INT(5) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+`nome` VARCHAR(45) NOT NULL,
+`quantidade` INT(5) NOT NULL,
+`preco` DECIMAL(4) NOT NULL,
+`tipo` VARCHAR(20));
+
+SELECT * FROM clientes;
+
+INSERT INTO clientes(nome, endereco, telefone, e_mail, cpf)
+VALUES ("Elio", "Rua Vargas 145", 987456321, "sql@sql.com", 123456789);
+
+INSERT INTO clientes(nome, endereco, telefone, e_mail, cpf)
+VALUES ("Alejo", "Rua Getúlio 180", 987456323, "python@python.com", 125456789);
+
+INSERT INTO clientes(nome, endereco, telefone, e_mail, cpf)
+VALUES ("Elio", "Rua Bico 145", 987456356, "sum@sum.com", 223456789);
+
+INSERT INTO clientes(nome, endereco, telefone, e_mail, cpf)
+VALUES ("Jhoel", "Rua Brasil 25", 99745632, "calma@calma.com", 123456788);
+
+
+
+
+UPDATE clientes
+SET nome = "Marcos"
+WHERE idclientes = 3;
+
+
+SELECT nome FROM clientes;
+
+SELECT * FROM produto;
+
+INSERT INTO produto(nome, quantidade, preco, tipo)
+VALUES ("samsung", 10, 1.300, "eletronico");
+
+INSERT INTO clientes(nome, endereco, telefone, e_mail, cpf)
+VALUES ("Elio", "Rua Vargas 145", 987456321, "sql@sql.com", 123456789);
+
+CREATE TABLE compras(
+`idproduto` INT(5),
+`idcliente` INT(5),
+`quantidade` INT(5),
+`valor` DECIMAL(4));
+
+SELECT * FROM compras;
+
+
+
+REPETE
+
+use loja_ii;
+
+CREATE TABLE produto
+(`id` INT(5) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+`nome` VARCHAR(45) NOT NULL,
+`quantidade` INT(5) NOT NULL,
+`preco` DECIMAL(4) NOT NULL,
+`tipo` VARCHAR(20));
+
+SELECT * FROM clientes;
+
+INSERT INTO clientes(nome, endereco, telefone, e_mail, cpf)
+VALUES ("Elio", "Rua Vargas 145", 987456321, "sql@sql.com", 123456789);
+
+INSERT INTO clientes(nome, endereco, telefone, e_mail, cpf)
+VALUES ("Alejo", "Rua Getúlio 180", 987456323, "python@python.com", 125456789);
+
+INSERT INTO clientes(nome, endereco, telefone, e_mail, cpf)
+VALUES ("Elio", "Rua Bico 145", 987456356, "sum@sum.com", 223456789);
+
+INSERT INTO clientes(nome, endereco, telefone, e_mail, cpf)
+VALUES ("Jhoel", "Rua Brasil 25", 99745632, "calma@calma.com", 123456788);
+
+
+
+
+UPDATE clientes
+SET nome = "Marcos"
+WHERE idclientes = 3;
+
+
+SELECT nome FROM clientes;
+
+SELECT * FROM produto;
+
+use loja_ii;
+
+INSERT INTO produto(nome, quantidade, preco, tipo)
+VALUES ("samsung", 10, 1.300, "eletronico");
+
+INSERT INTO clientes(nome, endereco, telefone, e_mail, cpf)
+VALUES ("Elio", "Rua Vargas 145", 987456321, "sql@sql.com", 123456789);
+
+CREATE TABLE compras(
+`idproduto` INT(5),
+`idcliente` INT(5),
+`quantidade` INT(5),
+`valor` DECIMAL(4));
+
+SELECT * FROM compras;
+
+SELECT * FROM produto;
+
+INSERT INTO produto(nome, quantidade, preco, tipo)
+VALUES ("Moto G7 Power", 10, 2300, "eletronico");
+
+UPDATE produto
+SET preco = "1300"
+WHERE id = 1;
+
+INSERT INTO produto(nome, quantidade, preco, tipo)
+VALUES ("Galaxy J2 TM", 20, 800, "eletronico");
+
+INSERT INTO produto(nome, quantidade, preco, tipo)
+VALUES ("Moto G9 Plus", 10, 2500, "eletronico");
+
+SELECT quantidade, preco FROM produto
+WHERE id = 2;
+
+SELECT COUNT(*) FROM produto 
+WHERE preco >2000;
+
+SELECT AVG(preco) FROM produto;
+
+SELECT SUM(quantidade) FROM produto;
+
+SELECT MAX(preco) FROM produto;
+
+SELECT nome, MAX(preco) AS preco_maximo FROM produto GROUP BY nome;
+
+-- SELECT nome, MAX(preco) AS preco_maximo FROM produto ORDER BY nome;
+
+/*selecionar uma culuna*/
+select nome_coluna from tabela;
+/*selecionar toda tabela*/
+select * from tabela;
+
+/*deletar um item da tabela*/
+delete nome from produto
+where id = 1;
+
+-- Atualizar dados em umma tabela
+
+UPDATE produto
+SET nome = "João"
+WHERE nome = "Cassio";
+
+
+CREATE TABLE vendas(
+`nomeProduto` varchar(45),
+`quantidade` int(5),
+`valor`decimal(4),
+`total` decimal(10,2));
+
+SELECT * FROM vendas;
+
+
+Conexao
+
+use loja_ii;
+
+CREATE TABLE produto
+(`id` INT(5) PRIMARY KEY NOT NULL AUTO_INCREMENT,
+`nome` VARCHAR(45) NOT NULL,
+`quantidade` INT(5) NOT NULL,
+`preco` DECIMAL(4) NOT NULL,
+`tipo` VARCHAR(20));
+
+SELECT * FROM clientes;
+
+INSERT INTO clientes(nome, endereco, telefone, e_mail, cpf)
+VALUES ("Elio", "Rua Vargas 145", 987456321, "sql@sql.com", 123456789);
+
+INSERT INTO clientes(nome, endereco, telefone, e_mail, cpf)
+VALUES ("Alejo", "Rua Getúlio 180", 987456323, "python@python.com", 125456789);
+
+INSERT INTO clientes(nome, endereco, telefone, e_mail, cpf)
+VALUES ("Elio", "Rua Bico 145", 987456356, "sum@sum.com", 223456789);
+
+INSERT INTO clientes(nome, endereco, telefone, e_mail, cpf)
+VALUES ("Jhoel", "Rua Brasil 25", 99745632, "calma@calma.com", 123456788);
+
+
+
+
+UPDATE clientes
+SET nome = "Marcos"
+WHERE idclientes = 3;
+
+
+SELECT nome FROM clientes;
+
+SELECT * FROM produto;
+
+use loja_ii;
+
+INSERT INTO produto(nome, quantidade, preco, tipo)
+VALUES ("samsung", 10, 1.300, "eletronico");
+
+INSERT INTO clientes(nome, endereco, telefone, e_mail, cpf)
+VALUES ("Elio", "Rua Vargas 145", 987456321, "sql@sql.com", 123456789);
+
+CREATE TABLE compras(
+`idproduto` INT(5),
+`idcliente` INT(5),
+`quantidade` INT(5),
+`valor` DECIMAL(4));
+
+SELECT * FROM compras;
+
+SELECT * FROM produto;
+
+INSERT INTO produto(nome, quantidade, preco, tipo)
+VALUES ("Moto G7 Power", 10, 2300, "eletronico");
+
+UPDATE produto
+SET preco = "1300"
+WHERE id = 1;
+
+INSERT INTO produto(nome, quantidade, preco, tipo)
+VALUES ("Galaxy J2 TM", 20, 800, "eletronico");
+
+INSERT INTO produto(nome, quantidade, preco, tipo)
+VALUES ("Moto G9 Plus", 10, 2500, "eletronico");
+
+SELECT quantidade, preco FROM produto
+WHERE id = 2;
+
+SELECT COUNT(*) FROM produto 
+WHERE preco >2000;
+
+SELECT AVG(preco) FROM produto;
+
+SELECT SUM(quantidade) FROM produto;
+
+SELECT MAX(preco) FROM produto;
+
+SELECT nome, MAX(preco) AS preco_maximo FROM produto GROUP BY nome;
+
+-- SELECT nome, MAX(preco) AS preco_maximo FROM produto ORDER BY nome;
+
+/*selecionar uma culuna*/
+select nome_coluna from tabela;
+/*selecionar toda tabela*/
+select * from tabela;
+
+/*deletar um item da tabela*/
+delete nome from produto
+where id = 1;
+
+-- Atualizar dados em umma tabela
+
+UPDATE produto
+SET nome = "João"
+WHERE nome = "Cassio";
+
+
+CREATE TABLE vendas(
+`nomeProduto` varchar(45),
+`quantidade` int(5),
+`valor`decimal(4),
+`total` decimal(10,2));
+
+SELECT * FROM vendas;
+
+SELECT * FROM cliente_vip;
+SELECT * FROM cliente_especial;
+
+
+
+
+
+
+
