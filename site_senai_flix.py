@@ -1,56 +1,75 @@
-from filme import Filme, Serie, Documentario
-from cliente import Cliente
+from filme_series import Filme, Serie, Documentario
+
+from cliente import  Cliente
+from login import Login
 from conta import Conta
+from cadastro import Cadastro, ver
 
-cliente_cadastrado = {}
 
-print("#############################")
-print("# Bem-vindo(a) ao SenaiFlix #")
-print("#        By: IgorLeon       #")
-print("#############################")
+print("####################################")
+print("       Bem vindo a SenaiFlix        ")
+print("####################################")
+    
+
+
+"""login = Login()
+
+login.efetua_login()
+login.email = input("Digite seu email: ")
+login.senha = input("Digite sua senha: ")"""
+
+# Chama a classe login e seu metodo para efetuar login
+1
+clientes = {}
+
 while True:
-    print('Para utilizar nossos serviços, efetue o login.')
-    opcao = input("Deseja efetuar o login ou se cadastrar?(l / c): ")
-    if opcao == 'l':
-        from login import Login
-        email = input("Digite o seu email: ")
-        senha = input("Digite a sua senha: ")
-        cliente_logou = Login(email, senha)
-        cliente_logou.efetua_login(email,senha)
-    elif opcao == 'c':
-        from cadastro import Cadastro
-        cliente = Cadastro()
-        cliente.efetuar_cadastro()
-        print(cliente_cadastrado)
+    print(" Escolha uma opção: ")
+    print(" Opção 1. Alugar um filme")
+    print(" Opção 2. Alugar um Seirie")
+    print(" Opção 3. Alugar um filmes")
+    print(" Opção 4. Deletar Títulos")
+    print(" Opção 5. Sair")
 
-#----------------Inicia Programa----------------
 
-    while True:
-        print("----------------------------------------")
-        print("-       1 - Alugar Filmes              -")
-        print("-       2 - Alugar Série               -")
-        print("-       3 - Alugar Documentario        -")
-        print("-       4 - Sair                       -")
-        print("----------------------------------------")
+    opcao = input("")
 
-        opcao = input("Digite a opção desejada: ")
+    if opcao == "4":
+        break
 
-        #----------------Inicia Alugar Filme----------------
-
-        if opcao == '1':
-            while True:
-                nome= input("Digite o seu nome: ")
-                endereco= input("Digite o seu endereço: ") 
-                email= input("Digite o seu E-mail: ")
-                cliente01 = Cliente(nome, endereco, email)
-                print(f"Olá, {nome}. Qual filme deseja alugar?\n")
-                break
+    if opcao == "1":
+        cadastro = Cadastro()
+        cadastro.verefica_Cadastro()
+    break
 
 
 
-        #----------------Fecha o Programa----------------
-        elif opcao == '4':
-            print("Obrigado por utilizar o meu serviço ;-).\n")
-            break
-        else:
-            print("Opção invalida.")
+                
+    """
+    elif opcao == "1":
+        print(" Escolha uma opção: ")
+        print(" Opção 1. Inserir Filmes")
+        print(" Opção 2. Inserir Séries")
+        print(" Opção 3. Inserir Documentarios  ")
+        print(" Opção 4. Sair")
+
+
+        opcao = int(input(""))
+
+
+    if opcao == "4":
+        break
+
+    if opcao == "1": """
+
+    """
+
+        nome = input("Digiete seu nome:")
+        email = input("Digite seu email:")
+        endereco = input("Digite seu endereço:")
+        cliente = Cliente(nome, endereco, email)
+        print(f"Bem vindo{nome}. ")
+    
+    if opcao == 1:
+        filme = Filme("Matrix ", "Ficção " 18, 180)
+        #filme
+        """
