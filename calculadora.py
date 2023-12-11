@@ -1,31 +1,61 @@
-print("****************************************")
-print("Bem vindo a calculadora quântica do aluno")
-print("****************************************")
+import tkinter as tk
 
-numero_1= float(input("Digite o primeiro número:"))
-numero_2= float(input("Digite o segundo número"))
-while(True):
-    print("Escolha uma opção \n")
-    print("Opção 1: Adição \n")
-    print("Opção 2: Subtração \n")
-    print("Opção 3: Multiplicação \n")
-    print("Opção 4: Divisão \n")
-    print("Opção 5: Sair \n")
 
-    opcao = int(input())
+janela = tk.Tk()
+largura = "500"
+altura= "500"
+janela.geometry(f"{largura}x{altura}")
+janela.title("Calculadora Geométrica")
 
-    if opcao == 5:
-        break
+#Entrada de números
+entrada1 = float(tk.Entry(janela))
+entrada2 = float(tk.Entry(janela))
 
-    elif opcao == 1:
-        print(f"A soma de {numero_1} com o {numero_2} é :", numero_1 + numero_2)
+#Botão que efetua uma oparacao
+def efetua_soma():
+    valor1 = (entrada1.get())
+    valor2 = (entrada2.get())
+    resultado = valor1 + valor2
+    lbl_resultado.config(text=f"Resultado: {resultado}")
+
+def efetua_subtracao():
+    valor1 = (entrada1.get())
+    valor2 = (entrada2.get())
+    resultado = valor1 - valor2
+    lbl_resultado.config(text=f"Resultado: {resultado}")
+
+def efetua_multiplicacao():
+    valor1 = (entrada1.get())
+    valor2 = (entrada2.get())
+    resultado = valor1 * valor2
+    lbl_resultado.config(text=f"Resultado: {resultado}")
+
+
+def efetua_divisao():
+    try:  
     
-    elif opcao == 2:
-        print(f"A subtração de {numero_1} com o {numero_2} é :", numero_1 - numero_2)
+        valor1 = (entrada1.get())
+        valor2 = (entrada2.get())
 
-    elif opcao == 3:
-        print(f"A multiplicação de {numero_1} com o {numero_2} é :", numero_1 * numero_2)
+    except:
+
+        if( valor2 != 0 ):
+            resultado = valor1 / valor2
+            lbl_resultado.config(text=f"Resultado: {resultado}")
+    else:
+        print("Erro, divisão por zero")
 
 
-    elif opcao == 4:
-        print(f"A Divisão de {numero_1} com o {numero_2} é :", numero_1 / numero_2)
+
+#Local onde é exibido o resultado
+lbl_resultado= tk.Label(janela, text="Exibe resultado")
+
+botao_calcular= tk.Button(janela,text="Calcular", command=efetua_soma())
+
+entrada1.pack()
+entrada2.pack()
+botao_calcular.pack()
+lbl_resultado.pack()
+
+janela.mainloop()
+
