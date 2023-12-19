@@ -1,0 +1,62 @@
+from selenium import webdriver
+from bs4 import BeautifulSoup
+import time
+from datetime import datetime
+from plyer import notification  # Instale usando: pip install plyer
+
+# URL do site de notícias que você deseja rastrear
+url_noticias = "URL_DO_SEU_SITE_DE_NOTICIAS"
+
+# Configurações do WebDriver (certifique-se de apontar para o local correto do seu driver)
+driver = webdriver.Chrome(executable_path="C:/caminho/para/chromedriver.exe")
+
+# Função para extrair informações da página de notícias
+def extrair_noticias():
+    try:
+        # Abre a página de notícias
+        driver.get(url_noticias)
+        time.sleep(3)  # Aguarda a página carregar (pode ser ajustado)
+
+        # Extração de informações com BeautifulSoup
+        soup = BeautifulSoup(driver.page_source, 'html.parser')
+        
+        # Ajuste conforme a estrutura HTML do site específico
+        noticias = soup.find_all('div', {'class': 'classe-da-noticia'})
+
+        lista_noticias = []
+        for noticia in noticias:
+            titulo = noticia.find('h2').text
+            link = noticia.find('a')['href']
+            resumo = noticia.find('p').text
+
+            lista_noticias.append({
+                'titulo': titulo,
+                'link': link,
+                'resumo': resumo
+            })
+
+        return lista_noticias
+    except Exception as e:
+        print(f"Erro ao extrair notícias: {e}")
+        return []
+
+# Função para enviar notificação com o resumo diário
+def enviar_resumo_diario(lista_noticias):
+    mensagem = "Resumo Diário:\n\n"
+    
+    for noticia in lista_noticias:
+        mensagem += f"{noticia['titulo']}\n{noticia['resumo']}\nLink: {noticia['link']}\n\n"
+
+    notification.notify(
+        title="Rastreamento de Notícias",
+        message=mensagem,
+        app_name="Rastreador de Notícias",
+    )
+
+# Rastreamento de notícias
+lista_noticias = extrair_noticias()
+if lista_noticias:
+    enviar_resumo_diario(lista_noticias)
+
+# Fechar o navegador
+driver.quit()
